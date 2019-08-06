@@ -1,0 +1,40 @@
+{% extends "clientsite/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="col-lg-6 offset-3">
+    <div class="box">
+                        {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                    {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+
+            {{ form|crispy }}
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-white-primary"><i class="fa fa-user-md"></i> Update
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+  {% endblock content %}

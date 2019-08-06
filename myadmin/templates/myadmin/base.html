@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Admin</title>
+	<link rel="stylesheet" href="{% static 'myadmin/style.css' %}" type="text/css" media="all" />
+	<script src="{% static 'myadmin/jquery-3.4.1.js' %}"></script>
+</head>
+<body>
+<!-- Header -->
+<div id="header">
+	<div class="shell">
+		<!-- Logo + Top Nav -->
+		<div id="top">
+			<h1><a href="#">Admin</a></h1>
+			<div id="top-navigation">
+				Welcome <strong>Administrator</strong>
+				<span>|</span>
+				<a href="#">Help</a>
+				<span>|</span>
+				<a href="#">Profile Settings</a>
+				<span>|</span>
+				<a href="{% url 'logout' %}">Log out</a>
+			</div>
+		</div>
+		<!-- End Logo + Top Nav -->
+		
+		<!-- Main Nav -->
+		<div id="navigation">
+			<ul>
+			    <li><a href="{% url 'admin' %}" class="active"><span>Dashboard</span></a></li>
+			    <li><a href="{% url 'addoctor' %}"><span>Register Doctor</span></a></li>
+			    <li><a href="#"><span>Manage Doctors</span></a></li>
+			    <li><a href="#"><span>Update Training Model</span></a></li>
+			</ul>
+		</div>
+		<!-- End Main Nav -->
+	</div>
+</div>
+<!-- End Header -->
+
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<div id="footer">
+	<div class="shell">
+		<span class="left">&copy; 2010 - CompanyName</span>
+		<span class="right">
+			Design by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">Chocotemplates.com</a>
+		</span>
+	</div>
+</div>
+<!-- End Footer -->
+	
+</body>
+</html>

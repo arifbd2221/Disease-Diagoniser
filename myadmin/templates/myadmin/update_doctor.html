@@ -1,0 +1,57 @@
+{% extends "myadmin/base.html" %}
+
+{% block content %}
+
+
+				<!-- Box -->
+				<div class="box">
+                        <!-- Box Head -->
+                        <div class="box-head">
+                            <h2>Update Doctor</h2>
+                        </div>
+                        <!-- End Box Head -->
+                        
+                        <form action="{% url 'addoctor' %}" method="post">
+                            {% csrf_token %}
+                            <!-- Form -->
+                            <div class="form">
+                                    <p>
+                                        <span class="req">max 100 symbols</span>
+                                        <label>Doctor Name <span>(Required Field)</span></label>
+                                        <input type="text" name="name" class="field size1" value="{{user.name}}" />
+                                        <label>Doctor Speciality <span>(Required Field)</span></label>
+                                        <input type="text" name="speciality" class="field size1" value="{{user.speciality}}" />
+                                        <label>Gender <span>(Required Field)</span></label>
+                                        {% if user.gender == 'male' %}
+                                        <input type="radio" name="gender" value="male" checked> Male<br>
+                                        <input type="radio" name="gender" value="female"> Female<br>
+                                        {% else %}
+                                        <input type="radio" name="gender" value="male"> Male<br>
+                                        <input type="radio" name="gender" value="female" checked> Female<br>
+                                        {% endif %}
+                                        <label>Chambers <span>(Required Field)</span></label>
+                                        <input type="text" name="chamber" class="field size1" value="{{user.chamber}}" />
+                                    </p>	
+    
+                                    <p>
+                                        <label>Email <span>(Required Field)</span></label>
+                                        <input type="email" name="email" class="field size1" />
+                                        <label>Password <span>(Required Field)</span></label>
+                                        <input type="password" name="password" class="field size1" />
+                                    </p>
+                                    
+                                
+                            </div>
+                            <!-- End Form -->
+                            
+                            <!-- Form Buttons -->
+                            <div class="buttons">
+                                <input type="submit" class="button" value="submit" />
+                            </div>
+                            <!-- End Form Buttons -->
+                        </form>
+                    </div>
+                    <!-- End Box -->
+
+
+{% endblock content %}

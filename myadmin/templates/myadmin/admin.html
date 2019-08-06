@@ -1,0 +1,133 @@
+{% extends "myadmin/base.html" %}
+
+{% block content %}
+
+
+<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		<!-- Small Nav -->
+		<div class="small-nav">
+			<a href="#">Dashboard</a>
+			<span>&gt;</span>
+			Doctors
+		</div>
+		<!-- End Small Nav -->
+		
+		<!-- Message OK -->		
+		<div class="msg msg-ok">
+			<p><strong>Your file was uploaded succesifully!</strong></p>
+			<a href="#" class="close">close</a>
+		</div>
+		<!-- End Message OK -->		
+		
+		<!-- Message Error -->
+		<div class="msg msg-error">
+			<p><strong>You must select a file to upload first!</strong></p>
+			<a href="#" class="close">close</a>
+		</div>
+		<!-- End Message Error -->
+		<br />
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+				
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Doctor List</h2>
+						<div class="right">
+							<label>search doctors</label>
+							<input type="text" class="field small-field" />
+							<input type="submit" class="button" value="search" />
+						</div>
+					</div>
+					<!-- End Box Head -->	
+
+					<!-- Table -->
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th>Name</th>
+								<th>Added by</th>
+								<th width="110" class="ac">Content Control</th>
+							</tr>
+							
+
+							{% for user in users %}
+
+							<tr>
+								<td><input type="checkbox" class="checkbox" /></td>
+								<td id="id" hidden>{{user.id}}</td>
+								<td><h3><a href="{% url 'detailsdoctor' user.id %}">{{user.name}}</a></h3></td>
+								<td><a href="#">Administrator</a></td>
+								<td><a href="" onclick="myFunction('{{user.id}}')" class="ico del">Delete</a><a href="{% url 'editdoctor' user.id %}" class="ico edit">Edit</a></td>
+							</tr>
+
+							{% endfor %}
+
+						</table>
+						
+						
+						<!-- Pagging -->
+						<div class="pagging">
+							<div class="left">Showing 1-12 of 44</div>
+							<div class="right">
+								<a href="#">Previous</a>
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">245</a>
+								<span>...</span>
+								<a href="#">Next</a>
+								<a href="#">View all</a>
+							</div>
+						</div>
+						<!-- End Pagging -->
+						
+					</div>
+					<!-- Table -->
+					
+				</div>
+				<!-- End Box -->
+				
+
+
+			</div>
+			<!-- End Content -->
+
+			
+			<div class="cl">&nbsp;</div>			
+		</div>
+		<!-- Main -->
+	</div>
+</div>
+<!-- End Container -->
+
+<script>
+        function myFunction(val) {
+		var	res = confirm("Are you sure to proceed!!!");
+		if (res == true){
+			$.ajax({
+			type: 'GET',
+        url: "delete/doctor/"+val,
+        data : {},
+        success : function(json) {
+            
+            console.log(json);
+        }
+    })
+		}
+		  
+        }
+        </script>
+
+
+{% endblock content %}

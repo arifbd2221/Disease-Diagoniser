@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Heart Disease Analyzer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'clientsite/css/open-iconic-bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'clientsite/css/main.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/owl.carousel.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'clientsite/css/magnific-popup.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/aos.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/ionicons.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/bootstrap-datepicker.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'clientsite/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'clientsite/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'clientsite/css/style.css' %}">
+  </head>
+
+  <body>
+
+    <nav class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+    			<div class="col-lg-2 pr-4 align-items-center">
+		    		<a class="navbar-brand" href="{% url 'home' %}">Dr.<span>care</span></a>
+	    		</div>
+	    		<div class="col-lg-10 d-none d-md-block">
+		    		<div class="row d-flex">
+			    		<div class="col-md-4 pr-4 d-flex topper align-items-center">
+			    			<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center"><span class="icon-map"></span></div>
+						    <span class="text">Address: 198 West 21th Street, Suite 721 New York NY 10016</span>
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+						    <span class="text">Email: youremail@email.com</span>
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+						    <span class="text">Phone: + 1235 2355 98</span>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </nav>
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container d-flex align-items-center">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+        </button>
+        {% if request.user.is_authenticated %}
+	      <p class="button-custom order-lg-last mb-0"><a href="{% url 'logout' %}" class="btn btn-secondary py-2 px-3">Logout</a></p>
+        {% else %}
+        <p class="button-custom order-lg-last mb-0"><a href="{% url 'register' %}" class="btn btn-secondary py-2 px-3">Register</a></p> 
+        <p class="button-custom order-lg-last mb-0"><a href="{% url 'login' %}" class="btn btn-primary py-2 px-3">Login</a></p>
+        {% endif %}
+        <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mr-auto">
+	        	<li class="nav-item active"><a href="{% url 'home' %}" class="nav-link pl-0">Home</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'update-profile' %}" class="nav-link">Profile</a></li>
+            {% else %}
+            <li class="nav-item"><a href="{% url 'doctor' %}" class="nav-link">Doctors</a></li>
+            {% endif %}
+	        	<li class="nav-item"><a href="{% url 'department' %}" class="nav-link">Departments</a></li>
+	        	<li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
+	        	<li class="nav-item"><a href="{% url 'qusans' %}" class="nav-link">Q/A</a></li>
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+        {% block content %}{% endblock %}
+
+        
+        
+    <script src="{% static 'clientsite/js/jquery.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/popper.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/aos.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'clientsite/js/jquery.timepicker.min.js' %}"></script>
+    <script src="{% static 'clientsite/js/scrollax.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{% static 'clientsite/js/google-map.js' %}"></script>
+    <script src="{% static 'clientsite/js/main.js' %}"></script>
+  </body>
+
+  </html>
