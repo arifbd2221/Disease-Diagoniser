@@ -6,7 +6,7 @@ for analysing patient reports. To use these tools doctor needs to pay a subscrip
 The subscription fee splits into weekly,monthly,yearly. Stripe payment is controlling the subscription
 payment over the online. Rather than these Daktar Babu has Question Answer module, here patients can ask their question
 and the doctors will answer that question whoever is online. Daktar Babu shows patients the top answerers doctors.
-Patients can get any doctors details from the system.     
+Patients can get any doctor's details from the system.     
 
 This application is now on heroku server
 
